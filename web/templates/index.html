@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPal Controller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>MedPal Control</h1>
+
+    <div class="control-pad">
+        <button class="btn-fwd" onclick="sendCommand('/forward', 'Moving Forward')">▲</button>
+        <button class="btn-left" onclick="sendCommand('/left', 'Turning Left')">◀</button>
+        <button class="btn-stop" onclick="sendCommand('/stop', 'STOPPED')">STOP</button>
+        <button class="btn-right" onclick="sendCommand('/right', 'Turning Right')">▶</button>
+        <button class="btn-back" onclick="sendCommand('/backward', 'Moving Backward')">▼</button>
+    </div>
+
+    <div id="status-bar">Status: Ready</div>
+
+    <div class="led-indicators">
+        <div class="motor-group">
+            <span>LF:</span>
+            <div id="LF_F" class="led"></div>
+            <div id="LF_B" class="led"></div>
+        </div>
+        <div class="motor-group">
+            <span>RF:</span>
+            <div id="RF_F" class="led"></div>
+            <div id="RF_B" class="led"></div>
+        </div>
+        <div class="motor-group">
+            <span>LB:</span>
+            <div id="LB_F" class="led"></div>
+            <div id="LB_B" class="led"></div>
+        </div>
+        <div class="motor-group">
+            <span>RB:</span>
+            <div id="RB_F" class="led"></div>
+            <div id="RB_B" class="led"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
